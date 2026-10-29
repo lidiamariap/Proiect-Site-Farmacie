@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaLyd - Galerie Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-plus-circle"></i> PharmaCare</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="produse.html">Products</a>
+                <a href="galerie.html" class="active">Gallery</a>
+                <a href="despre.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button id="themeToggle" class="icon-btn"><i class="fa-regular fa-sun" id="themeIcon"></i></button>
+        </div>
+    </header>
+
+    <main class="section-container">
+        <h2>Galerie Produse și Laborator</h2>
+        <p class="subtitle">Apasă pe orice imagine pentru a o vizualiza mărită și navighează cu butoanele Stânga / Dreapta.</p>
+
+        <!-- Grilă de Imagini -->
+        <div class="gallery-grid">
+            <div class="gallery-item" data-index="0">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Medicamente și Capsule">
+                <p>Laborator & Capsule</p>
+            </div>
+            <div class="gallery-item" data-index="1">
+                <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322a?auto=format&fit=crop&w=600&q=80" alt="Consultanță Farmacist">
+                <p>Consultanță Specializată</p>
+            </div>
+            <div class="gallery-item" data-index="2">
+                <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80" alt="Vitamine și Suplimente">
+                <p>Suplimente & Vitamine</p>
+            </div>
+            <div class="gallery-item" data-index="3">
+                <img src="https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&w=600&q=80" alt="Dispensar Farmaceutic">
+                <p>Dispensar Farmaceutic</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Lightbox pentru Imagine Mărită -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="close-lightbox">&times;</span>
+        <button id="lbPrev" class="lb-nav-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Imagine marita">
+            <p id="lightboxCaption"></p>
+        </div>
+        <button id="lbNext" class="lb-nav-btn"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Butoane UP/DOWN -->
+    <div class="floating-controls">
+        <button id="btnUp" class="float-btn"><i class="fa-solid fa-arrow-up"></i></button>
+        <button id="btnDown" class="float-btn"><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Logica Lightbox pentru Galerie
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modal = document.getElementById('lightboxModal');
+        const lbImg = document.getElementById('lightboxImg');
+        const lbCaption = document.getElementById('lightboxCaption');
+        const closeBtn = document.querySelector('.close-lightbox');
+        const prevBtn = document.getElementById('lbPrev');
+        const nextBtn = document.getElementById('lbNext');
+        
+        let currentIndex = 0;
+        const imagesData = Array.from(galleryItems).map(item => ({
+            src: item.querySelector('img').src,
+            caption: item.querySelector('p').textContent
+        }));
+
+        function openModal(index) {
+            currentIndex = index;
+            lbImg.src = imagesData[currentIndex].src;
+            lbCaption.textContent = imagesData[currentIndex].caption;
+            modal.style.display = 'flex';
+        }
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => openModal(index));
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % imagesData.length;
+            openModal(currentIndex);
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + imagesData.length) % imagesData.length;
+            openModal(currentIndex);
+        });
+
+        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

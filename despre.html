@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaLyd - Despre Noi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-plus-circle"></i> PharmaLyd</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="produse.html">Products</a>
+                <a href="galerie.html">Gallery</a>
+                <a href="despre.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button id="themeToggle" class="icon-btn"><i class="fa-regular fa-sun" id="themeIcon"></i></button>
+        </div>
+    </header>
+
+    <main class="section-container">
+        <h2>Misiunea Noastră: Îngrijire & Profesionalism</h2>
+        <p class="subtitle">Echipa PharmaLyd aduce expertiza farmaceutică direct la tine acasă.</p>
+
+        <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; line-height: 1.8;">
+            <h3>Cine suntem?</h3>
+            <p style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                Suntem o rețea farmaceutică fondată pe principii clare: transparență medicală, siguranța tratamentului și acces facil la sfaturi de sănătate validate clinic.
+            </p>
+
+            <h3>Standardele noastre de calitate</h3>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Medicamente verificate și păstrate în condiții optime de temperatură.</li>
+                <li>Consultanță farmaceutică dedicată pentru fiecare rețetă.</li>
+                <li>Informații complete despre substanțele active și interacțiuni.</li>
+            </ul>
+        </div>
+    </main>
+
+    <div class="floating-controls">
+        <button id="btnUp" class="float-btn"><i class="fa-solid fa-arrow-up"></i></button>
+        <button id="btnDown" class="float-btn"><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

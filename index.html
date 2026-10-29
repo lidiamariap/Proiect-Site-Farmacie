@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaLyd - Sănătate pentru tine</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome pentru iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics (cerință proiect) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+
+    <!-- Header fix cu Navigare -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-plus-circle"></i> PharmaLyd
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="produse.html">Products</a>
+                <a href="galerie.html">Gallery</a>
+                <a href="despre.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Caută medicamente, substanțe...">
+            </div>
+
+            <!-- Buton Dark/Light Mode -->
+            <button id="themeToggle" class="icon-btn" aria-label="Schimbă tema">
+                <i class="fa-regular fa-sun" id="themeIcon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Secțiunea Hero cu Carusel -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge">Partenerul tău zilnic de sănătate</span>
+            <h1>A little care.<br>A healthier everyday.</h1>
+            <p>Găsește rapid produsele necesare pentru sănătatea familiei tale, cu informații clare și transparente.</p>
+            <div class="hero-actions">
+                <a href="produse.html" class="btn primary-btn">Explorează produsele &rarr;</a>
+                <a href="despre.html" class="btn secondary-btn">Despre noi</a>
+            </div>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322a?auto=format&fit=crop&w=800&q=80" alt="Farmacist">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="Medicamente">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80" alt="Vitamine">
+            </div>
+
+            <div class="carousel-nav">
+                <button id="prevBtn" class="carousel-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="nextBtn" class="carousel-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabel Componente & Dozaj (Căutabil dinamic) -->
+    <section class="section-container">
+        <h2>Informații clare. Decizii sigure.</h2>
+        <p class="subtitle">Verifică rapid substanțele active, concentrațiile și disponibilitatea produselor.</p>
+        
+        <div class="table-responsive">
+            <table class="data-table" id="medTable">
+                <thead>
+                    <tr>
+                        <th>Denumire Produs</th>
+                        <th>Substanță Activă</th>
+                        <th>Dozaj</th>
+                        <th>Disponibilitate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Paracetamol</strong></td>
+                        <td>Paracetamolum</td>
+                        <td>500 mg</td>
+                        <td><span class="status in-stock">În stoc (Fără rețetă)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cetirizine</strong></td>
+                        <td>Cetirizini dihydrochloridum</td>
+                        <td>10 mg</td>
+                        <td><span class="status in-stock">În stoc (Fără rețetă)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vitamina D3</strong></td>
+                        <td>Colecalciferol</td>
+                        <td>2000 UI</td>
+                        <td><span class="status in-stock">În stoc</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amoxicilină</strong></td>
+                        <td>Amoxicillinum</td>
+                        <td>500 mg</td>
+                        <td><span class="status rx">Necesită rețetă</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Secțiune Video Educativ -->
+    <section class="section-container video-block">
+        <h2>Ghidul tău video pentru sănătate</h2>
+        <p class="subtitle">Află cum să citești corect prospectul și să păstrezi medicamentele în siguranță.</p>
+        <div class="video-wrapper">
+            <!-- Înlocuiește link-ul cu ID-ul oricărui clip YouTube dorit -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ghid PharmaCare" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Butoane Plutitoare: Help, UP și DOWN -->
+    <div class="floating-controls">
+        <button id="btnHelp" class="float-btn help-btn" title="Ajutor"><i class="fa-solid fa-question"></i></button>
+        <button id="btnUp" class="float-btn" title="Sus"><i class="fa-solid fa-arrow-up"></i></button>
+        <button id="btnDown" class="float-btn" title="Jos"><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+
+    <!-- Modal Help -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Ghid Rapid de Utilizare</h3>
+            <p>• Folosește bara de sus pentru a căuta produse sau substanțe direct în pagină.</p>
+            <p>• Butonul soare/lună din colț comută modul întunecat (Dark Mode).</p>
+            <p>• Pentru comenzi speciale sau întrebări, accesează pagina de Contact.</p>
+        </div>
+    </div>
+
+    <!-- Footer cu Social Media -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h4><i class="fa-solid fa-plus-circle"></i> PharmaCare</h4>
+                <p>Farmacia ta online de încredere.</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 PharmaCare. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

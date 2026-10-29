@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaCare - Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-plus-circle"></i> PharmaCare</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="produse.html">Products</a>
+                <a href="galerie.html">Gallery</a>
+                <a href="despre.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <button id="themeToggle" class="icon-btn"><i class="fa-regular fa-sun" id="themeIcon"></i></button>
+        </div>
+    </header>
+
+    <main class="section-container">
+        <h2>Formular de Contact și Rețete</h2>
+        <p class="subtitle">Trimite-ne un mesaj sau o solicitare farmaceutică. Toate câmpurile sunt validate în timp real.</p>
+
+        <div class="contact-box">
+            <form id="contactForm" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Nume și Prenume *</label>
+                    <input type="text" id="fullName" placeholder="Ex: Popescu Ion">
+                    <small class="error-msg" id="nameError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresă de Email *</label>
+                    <input type="email" id="email" placeholder="nume@exemplu.ro">
+                    <small class="error-msg" id="emailError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Număr de Telefon (România) *</label>
+                    <input type="tel" id="phone" placeholder="07xxxxxxxx">
+                    <small class="error-msg" id="phoneError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mesaj / Întrebare *</label>
+                    <textarea id="message" rows="4" placeholder="Scrieți mesajul dvs. aici..."></textarea>
+                    <small class="error-msg" id="messageError"></small>
+                </div>
+
+                <button type="submit" class="btn primary-btn">Trimite Mesajul</button>
+                <p id="successMessage" class="success-banner"></p>
+            </form>
+        </div>
+    </main>
+
+    <div class="floating-controls">
+        <button id="btnUp" class="float-btn"><i class="fa-solid fa-arrow-up"></i></button>
+        <button id="btnDown" class="float-btn"><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Validare formular de contact
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            const name = document.getElementById('fullName');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const message = document.getElementById('message');
+
+            const nameErr = document.getElementById('nameError');
+            const emailErr = document.getElementById('emailError');
+            const phoneErr = document.getElementById('phoneError');
+            const messageErr = document.getElementById('messageError');
+            const successMsg = document.getElementById('successMessage');
+
+            // Resetare erori
+            [nameErr, emailErr, phoneErr, messageErr].forEach(el => el.textContent = '');
+            successMsg.textContent = '';
+
+            // Validare Nume (minim 3 caractere)
+            if (name.value.trim().length < 3) {
+                nameErr.textContent = 'Introduceți un nume valid (minim 3 caractere).';
+                isValid = false;
+            }
+
+            // Validare Email (Regex)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value.trim())) {
+                emailErr.textContent = 'Introduceți o adresă de email validă.';
+                isValid = false;
+            }
+
+            // Validare Telefon România (Format 07xxxxxxxx - 10 cifre)
+            const phoneRegex = /^07[0-9]{8}$/;
+            if (!phoneRegex.test(phone.value.trim())) {
+                phoneErr.textContent = 'Introduceți un număr valid (10 cifre, începând cu 07).';
+                isValid = false;
+            }
+
+            // Validare Mesaj (minim 10 caractere)
+            if (message.value.trim().length < 10) {
+                messageErr.textContent = 'Mesajul trebuie să aibă minim 10 caractere.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                successMsg.textContent = '✓ Mesajul a fost validat și expediat cu succes!';
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>

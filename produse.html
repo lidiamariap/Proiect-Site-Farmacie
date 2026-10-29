@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaLyd - Catalog Produse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-plus-circle"></i> PharmaLyd</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="produse.html" class="active">Products</a>
+                <a href="galerie.html">Gallery</a>
+                <a href="despre.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button id="themeToggle" class="icon-btn"><i class="fa-regular fa-sun" id="themeIcon"></i></button>
+        </div>
+    </header>
+
+    <main class="section-container">
+        <h2>Catalog Produse Farmaceutice</h2>
+        <p class="subtitle">Găsește medicamentele și suplimentele verificate de farmaciștii noștri.</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Paracetamol">
+                <p><strong>Paracetamol 500mg</strong><br>15.00 RON</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=600&q=80" alt="Vitamina C">
+                <p><strong>Vitamina C 1000mg</strong><br>24.50 RON</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&w=600&q=80" alt="Ibuprofen">
+                <p><strong>Ibuprofen 400mg</strong><br>18.00 RON</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322a?auto=format&fit=crop&w=600&q=80" alt="Magneziu B6">
+                <p><strong>Magneziu + B6 Complex</strong><br>32.00 RON</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="floating-controls">
+        <button id="btnUp" class="float-btn"><i class="fa-solid fa-arrow-up"></i></button>
+        <button id="btnDown" class="float-btn"><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
